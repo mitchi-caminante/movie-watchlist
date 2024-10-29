@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+        <!-- font awesome -->
+        <script src="https://kit.fontawesome.com/3121844f9d.js" crossorigin="anonymous"></script>
+        <!-- fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <main class="main-container">
+           <header class="header-container">
+                <h1>Find your film</h1>
+                <nav>
+                    <a href="watchlist.html" id="go-to-watchlist">My Watchlist</a>
+                </nav>
+           </header>
+
+           <form id="search-form" class="search-container">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i> 
+                <input type="text" 
+                id="search-input"
+                placeholder="type a movie..." 
+                aria-label="search for a movie to add to your watchlist">
+                <button type="submit" id="search-btn">Search</button>
+           </form>
+            <section class="movie-card-disp large-container" id="movie-card-disp">
+                <div class="landing-page-icon">
+                    <i class="fa-solid fa-film"></i>
+                    <p>Start exploring</p>
+                </div>
+                <ul class="movie-card-list" id="movie-card-list">
+                    <!-- movie cards will be inserted here by JS -->
+                </ul>
+            </section>
+        </main>
+        <script src="index.js"></script>
+    </body>
+</html>

@@ -1,0 +1,358 @@
+* {
+    box-sizing: border-box;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: lightgray;
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+    font-optical-sizing: auto;
+    line-height: 1.5; 
+    padding-bottom: 50px;
+}
+
+.main-container {
+    width: 90%;
+    margin: 0 auto;
+    background-color: white;
+    max-width: 900px;
+    box-sizing: border-box; 
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.625em 1.25em;
+    background-image: url(/projector.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 12.5em;
+    position: relative;
+}
+
+.header-container::before {
+    content: ''; 
+    position: absolute; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(255, 165, 0, 0.2), rgba(0, 128, 128, 0.3));
+    z-index: 1; 
+}
+
+.header-container h1,
+.header-container .search-container,
+.header-container #go-to-watchlist {
+    position: relative; 
+    z-index: 2; 
+    color: white; 
+}
+
+.header-container h1 {
+    font-size: clamp(1.5em, 2.5vw + 1em, 3em);
+}
+
+#go-to-watchlist {
+    color: white;
+    font-size: 1em;
+    padding: 0.5em 0.9375em;
+    cursor: pointer;
+    text-decoration: none;
+    transition: font-size 0.3s ease;
+}
+
+#go-to-watchlist:hover {
+    font-size: 1.2em;
+}
+
+.search-container {
+    display: flex;
+    position: relative;
+    align-items: center;
+    width: 100%;
+    max-width: 30em; 
+    margin: -1em auto 0;
+    flex-wrap: wrap;
+    z-index: 2;
+}
+
+.search-icon {
+    position: absolute;
+    left: 10px;
+    color: #aaa;
+    pointer-events: none;
+}
+
+#search-input {
+    flex: 1;
+    padding-left: 40px;
+    padding-right: 10px;
+    height: 2em;
+    border: 1px solid #ccc;
+    border-right: none; 
+    border-radius: 0.5em 0 0 0.5em;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+}
+
+#search-input:hover{
+    background-color: lightgray;
+}
+
+#search-btn {
+    height: 2em;
+    padding: 0 1em;
+    border: 1px solid #ccc;
+    border-radius: 0 0.5em 0.5em 0; 
+    background-color: white; 
+    cursor: pointer;
+    font-size: 1em;
+    margin-left: -1px;
+    transition: background-color 0.3s;
+}
+
+#search-btn:hover {
+    background-color: #c0c0c0;
+}
+
+#movie-card-list {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    transition: all 0.3s ease;
+}
+
+/* Large container class for loading and empty states */
+.large-container {
+    min-height: 500px; 
+    justify-content: center; 
+    text-align: center; 
+}
+
+/* movie card disp styles */
+.movie-card-disp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* landing page */
+.landing-page-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    color: darkgray;
+    height: 100%;
+}
+
+.landing-page-icon i {
+    font-size: 2em;        
+    margin: 0;                     
+}
+
+.landing-page-icon p {
+    margin: 0;            
+    text-align: center;
+    font-size: 1.125em;            
+}
+
+.movie-card-list {
+    padding: 0 1em; 
+}
+
+.movie-card {
+    display: flex;
+    align-items: center; 
+    margin-bottom: 20px; 
+    width: calc(100% - 10px); 
+    overflow: hidden;
+    max-width: 900px;
+    border-bottom: 1px solid gray;
+    padding-bottom: 40px;
+}
+
+.movie-poster {
+    flex: 0 0 auto;
+    width: 150px; 
+    height: auto;
+    object-fit: cover;
+    max-width: 100%;
+    margin-right: 20px; 
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .movie-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        overflow: hidden;
+        align-items: flex-start;
+        margin: 10px 0; 
+    }
+
+    .movie-poster {
+        width: 50%; 
+        max-width: 300px;
+        margin: 10px 0; 
+    }
+    
+    .title-year {
+        font-size: 1.2em;
+        white-space: normal;
+    }
+    
+    .rating {
+        font-size: 1em;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+    .movie-card {
+        flex-direction: row; 
+    }
+
+    .movie-poster {
+        width: 150x; 
+        margin-right: 15px; 
+    }
+}
+
+@media (min-width: 900px) {
+    .movie-card {
+        flex-direction: row; 
+    }
+
+    .movie-poster {
+        width: 150px;
+        margin-right: 20px; 
+    }
+}
+
+.movie-details {
+    display: flex; 
+    flex-direction: column;
+    flex-grow: 1;
+    padding-left: 10px; 
+}
+
+.movie-card span {
+    display: block; 
+    margin: 5px 0; 
+}
+
+.details-to-group {
+    margin: 0;
+    padding: 0;
+    width: 90%;
+}
+
+.title-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.title-year {
+    font-size: clamp(1em, 2vw + 0.5em, 2em);
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.rating {
+    font-size: clamp(0.85em, 1.5vw + 0.2em, 1.5em);
+    margin-left: 10px;  
+}
+
+.group-1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: clamp(0.85em, 1.25vw + 0.1em, 1em)
+}
+
+.add-to-watchlist-btn {
+    background-color: white;
+    border: none;
+    margin-top: 5px;
+}
+
+.group-2 {
+    font-size: clamp(0.85em, 1.25vw + 0.1em, 1em);
+}
+
+.movie-language {
+    padding-top: 5px;
+    padding-bottom: 10px;
+    font-size: clamp(0.75em, 1.25vw + 0.1em, 1em);
+}
+
+.plot-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    transition: max-height 0.3s ease;
+    margin-bottom: 10px;
+    padding: 0;
+}
+
+.plot-text {
+     display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3; /* Limits to 3 lines */
+    transition: max-height 0.3s ease;
+    overflow: hidden;
+    color: gray;
+    font-size: 0.9em;
+    line-height: 1.4;
+    flex: 1;
+    margin-right: 5px;
+    text-overflow: ellipsis;
+}
+
+
+
+.read-more-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9em;
+    text-decoration: none;
+    padding: 0;
+    display: inline;
+    margin-bottom: 0;
+    white-space: nowrap;
+}
+
+.plot-text.expanded {
+    display: block; /* Show full text when expanded */
+    -webkit-line-clamp: unset; /* Remove line clamp */
+}
+
+.read-more-btn.active {
+    display: inline-block; /* Show if active */
+}
+
+.details-to-group span {
+    display: block;
+    margin: 3px 0;
+}
